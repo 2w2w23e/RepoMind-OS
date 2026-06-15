@@ -1,103 +1,75 @@
 # RepoMind OS
 
-RepoMind OS is an embeddable AI governance starter for software repositories.
-It is a copy-and-start template that helps users and AI collaborators define
-project-specific roles, context, rules, preferences, and writeback mechanisms
-inside a repository.
+RepoMind OS 是一个可以嵌入软件仓库的 AI 治理启动模板。它不是自动运行的 agent runtime（智能体运行时），而是一套复制即用的项目协作协议，帮助用户和 AI 在仓库中管理项目角色、上下文、规则、偏好和回写机制。
 
-The goal is recoverability and controlled execution: a GPT web window may lose
-context or be deleted, but the project's AI operating state can be restored by
-reading the governance files again.
+它的目标是让项目 AI 状态可恢复、可审查、可控制：即使 GPT 网页窗口丢失上下文或被删除，也可以通过重新读取仓库中的治理文件恢复工作状态。
 
-RepoMind OS is not a fixed multi-role framework and not an automatic agent
-runtime. It provides a small governance kernel and starter protocols; each
-project decides which roles and rules are actually needed.
+RepoMind OS 不是固定多角色框架。它只提供一个小型治理内核和启动协议；每个项目自己决定需要哪些角色、规则和协作方式。
 
-## What It Helps With
+## 它解决什么问题
 
-- GPT web window memory loss: important project state lives in files, not only
-  in chat history.
-- Flexible AI collaboration: users may use a minimal setup, import existing
-  roles or prompts, generate project-specific roles, or use only selected
-  protocols.
-- Codex overreach: Codex tasks must name allowed files, forbidden files,
-  validation, commit rules, and stop conditions.
-- Context writeback: useful decisions, handoff state, preferences, and lessons
-  can be written back through a reviewable protocol.
+- GPT 网页窗口失忆：重要项目状态不只保存在聊天记录里，而是写入仓库文件。
+- 灵活 AI 协作：用户可以使用最小设置，也可以导入已有角色、prompt、项目笔记或工作习惯，再由 AI 按项目需要生成自定义角色。
+- Codex 越权风险：Codex 任务必须明确 allowed files（允许修改文件）、forbidden files（禁止修改文件）、validation（验证命令）、commit rules（提交规则）和 stop conditions（停止条件）。
+- 上下文回写：重要决策、交接状态、用户偏好和可复用经验可以通过可审查协议写回仓库。
 
-## Current Status
+## 当前状态
 
-RepoMind OS is a `v0.1-alpha candidate` / `pre-alpha` template. It is usable for
-manual trial runs, but it is not a stable framework and should not be treated as
-complete automation.
+RepoMind OS 目前是 `v0.1-alpha candidate` / `pre-alpha` 模板。它已经可以用于手动试跑，但还不是稳定框架，也不应被理解为完整自动化系统。
 
-It does not currently provide a CLI, cloud service, background agent, or
-automatic GitHub integration.
+当前没有 CLI、云服务、后台 agent，也没有自动 GitHub 集成。
 
-## Use It In 3 Steps
+## 3 步开始使用
 
-1. Copy `template/.ai-governance/` into your project root.
-2. If useful, copy or merge `template/AGENTS.md` into your project root.
-3. Open a GPT web window and follow `docs/quickstart.md`.
+1. 把 `template/.ai-governance/` 复制到你的项目根目录。
+2. 如果有需要，把 `template/AGENTS.md` 复制或合并到你的项目根目录。
+3. 打开 GPT 网页窗口，按照 `docs/quickstart.md` 启动。
 
-For the first window, the short instruction is:
+第一个 GPT 窗口可以使用这句简短启动语：
 
 ```text
-Read `.ai-governance/BOOT.md` and continue the first-window bootstrap flow.
-Do not stop at a summary. Ask the initial bootstrap questions.
+请读取 `.ai-governance/BOOT.md`，并继续执行 first-window bootstrap flow（第一窗口启动流程）。
+不要停在总结 BOOT.md。请直接询问初始 bootstrap 问题。
 ```
 
-`template/.ai-governance/START_HERE.md` is an optional helper for users who want
-a shorter first-window checklist. It is not a runtime entrypoint.
+`template/.ai-governance/START_HERE.md` 是可选辅助文件，只是给想要更短启动说明的用户看的清单。它不是 runtime entrypoint（运行时入口）。
 
-## Flexible Role Model
+## 灵活角色模型
 
-RepoMind OS does not require a standard role set.
+RepoMind OS 不要求使用固定角色集合。
 
-You can:
+你可以：
 
-- start with minimal governance and no extra specialist roles;
-- use Project Governor / Repo Governor as the recommended startup core;
-- import existing roles, prompts, project notes, or working habits;
-- ask the Project Governor to evaluate and propose project-specific roles;
-- split, merge, rewrite, or reject role proposals before they are used;
-- use only the protocols that fit the current project.
+- 从 minimal governance（最小治理）开始，不创建额外专家角色；
+- 使用 Project Governor / Repo Governor 作为推荐启动核心；
+- 导入已有角色、prompt、项目笔记或工作习惯；
+- 让 Project Governor 评估并提出项目专属角色；
+- 在使用前拆分、合并、重写或拒绝角色提案；
+- 只使用当前项目需要的协议。
 
-Role files are durable instructions, not a product taxonomy. Create only the
-roles that the project actually needs and the user approves.
+角色文件是可持久化的工作指令，不是固定产品分类。只创建项目真正需要、且用户明确批准的角色。
 
-## Minimal Use Flow
+## 最小使用流程
 
-1. Copy the contents of `template/` into the root of your project so the project
-   has a `.ai-governance/` directory.
-2. Open a new GPT web window.
-3. Ask GPT to read `.ai-governance/BOOT.md` first and continue the first-window
-   bootstrap flow.
-4. Choose minimal setup or custom roles based on the project and any existing
-   prompts or context.
-5. Follow the bootstrap flow before asking Codex or specialist roles to modify
-   repository files.
+1. 把 `template/` 里的内容复制到目标项目根目录，使目标项目拥有 `.ai-governance/` 目录。
+2. 打开一个新的 GPT 网页窗口。
+3. 让 GPT 先读取 `.ai-governance/BOOT.md`，并继续执行 first-window bootstrap flow（第一窗口启动流程）。
+4. 根据项目情况和已有上下文，选择 minimal setup（最小设置）或 custom roles（自定义角色）。
+5. 在完成启动流程前，不要让 Codex 或专家角色修改仓库文件。
 
-The first GPT window should identify project purpose, assess available context,
-propose only necessary roles, request user approval for durable governance
-changes, and route bounded implementation tasks only after approval.
+第一个 GPT 窗口应该先识别项目目的、评估可用上下文、只提出必要角色、请求用户批准长期治理变更，然后再路由有边界的执行任务。
 
-## Repository Layout
+## 仓库结构
 
-- `template/.ai-governance/BOOT.md`: startup protocol.
-- `template/.ai-governance/CONTEXT_INDEX.md`: context routing table.
-- `template/.ai-governance/roles/`: role templates and approved role
-  instructions.
-- `template/.ai-governance/prompts/`: packet and task templates.
-- `template/.ai-governance/handoff/`, `memory/`, and `decisions/`: durable
-  project coordination state.
+- `template/.ai-governance/BOOT.md`：启动协议。
+- `template/.ai-governance/CONTEXT_INDEX.md`：上下文读取路由表。
+- `template/.ai-governance/roles/`：角色模板和已批准角色说明。
+- `template/.ai-governance/prompts/`：任务包、结果包和 Codex prompt 模板。
+- `template/.ai-governance/handoff/`、`memory/`、`decisions/`：项目交接、经验和决策状态。
 
-## Safety Notes
+## 安全说明
 
-- Do not store secrets, tokens, API keys, raw private chat transcripts, or
-  unnecessary personal information in governance files.
-- Do not let Codex edit files outside the task's allowed file list.
-- Do not treat old chat summaries as verified project facts without repository
-  evidence or explicit user confirmation.
-- License selection is not included yet; choose a license before public reuse or
-  redistribution.
+- 不要把 secrets、token、API key、原始私密聊天记录或不必要的个人信息写进治理文件。
+- 不要让 Codex 修改任务 allowed files 之外的文件。
+- 不要把旧聊天总结当成已验证项目事实，除非有仓库证据或用户明确确认。
+- 当前还没有选择开源许可证；公开复用或再分发前需要选择 license。
