@@ -1,17 +1,17 @@
 # RepoMind OS
 
 RepoMind OS is an embeddable AI governance starter for software repositories.
-It is a copy-and-start bootstrap system for helping users and AI collaborators
-define project-specific roles, context, rules, preferences, and writeback
-mechanisms inside the repository.
+It is a copy-and-start template that helps users and AI collaborators define
+project-specific roles, context, rules, preferences, and writeback mechanisms
+inside a repository.
 
 The goal is recoverability and controlled execution: a GPT web window may lose
 context or be deleted, but the project's AI operating state can be restored by
 reading the governance files again.
 
-RepoMind OS is not a fixed multi-role framework. It provides a small governance
-kernel and starter protocols; each project can decide which roles and rules are
-actually needed.
+RepoMind OS is not a fixed multi-role framework and not an automatic agent
+runtime. It provides a small governance kernel and starter protocols; each
+project decides which roles and rules are actually needed.
 
 ## What It Helps With
 
@@ -34,6 +34,22 @@ complete automation.
 It does not currently provide a CLI, cloud service, background agent, or
 automatic GitHub integration.
 
+## Use It In 3 Steps
+
+1. Copy `template/.ai-governance/` into your project root.
+2. If useful, copy or merge `template/AGENTS.md` into your project root.
+3. Open a GPT web window and follow `docs/quickstart.md`.
+
+For the first window, the short instruction is:
+
+```text
+Read `.ai-governance/BOOT.md` and continue the first-window bootstrap flow.
+Do not stop at a summary. Ask the initial bootstrap questions.
+```
+
+`template/.ai-governance/START_HERE.md` is an optional helper for users who want
+a shorter first-window checklist. It is not a runtime entrypoint.
+
 ## Flexible Role Model
 
 RepoMind OS does not require a standard role set.
@@ -55,11 +71,11 @@ roles that the project actually needs and the user approves.
 1. Copy the contents of `template/` into the root of your project so the project
    has a `.ai-governance/` directory.
 2. Open a new GPT web window.
-3. Ask GPT to read `.ai-governance/BOOT.md` first.
-4. Let that window enter Project Governor Bootstrap Window mode.
-5. Choose minimal setup or custom roles based on the project and any existing
+3. Ask GPT to read `.ai-governance/BOOT.md` first and continue the first-window
+   bootstrap flow.
+4. Choose minimal setup or custom roles based on the project and any existing
    prompts or context.
-6. Follow the bootstrap flow before asking Codex or specialist roles to modify
+5. Follow the bootstrap flow before asking Codex or specialist roles to modify
    repository files.
 
 The first GPT window should identify project purpose, assess available context,
