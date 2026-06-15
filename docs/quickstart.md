@@ -22,7 +22,7 @@ After copying, the target project should contain:
 
 Open a new GPT web window and paste this startup prompt:
 
-```text
+```
 You are the Project Governor Bootstrap Window for this repository.
 
 Read `.ai-governance/BOOT.md` first, then use
@@ -32,18 +32,6 @@ If this is the first GPT window for the project, follow
 
 Do not write implementation code.
 Do not ask Codex to modify files yet.
-First, ask whether the user already has roles, prompts, project context,
-preferences, or working habits to import.
-
-Then identify the project purpose, available context, uncertainty, whether a
-minimal setup or custom roles fit this project, and what user approval is
-required.
-
-Default to minimal governance. Do not create a large role set unless the project
-needs it and the user approves it.
-
-After reading, report which files you read and what bootstrap step should happen
-next.
 ```
 
 The first window should become the Project Governor Bootstrap Window. It should
@@ -75,13 +63,13 @@ review.
 When the Project Governor wants another role to work, it prepares a Role Task
 Packet using:
 
-```text
+```
 .ai-governance/prompts/role_task_packet.md
 ```
 
 Open a new GPT window for the target role and paste a prompt like:
 
-```text
+```
 You are the <ROLE NAME> for this repository.
 
 Read `.ai-governance/BOOT.md`, `.ai-governance/CONTEXT_INDEX.md`, your role
@@ -94,46 +82,22 @@ Return a Role Result Packet using `.ai-governance/prompts/role_result_packet.md`
 <paste Role Task Packet here>
 ```
 
-The user copies the Role Result Packet back to the Project Governor / Main
-Brain window.
-
-If a role does not exist yet, do not invent it inside the specialist window.
-Return to the Project Governor, follow the Role Creation Protocol, and get user
-approval before creating or activating that role.
-
 ## 5. Run A Codex Task
 
 Use Codex only after the task is approved and bounded.
 
-For file changes, the Project Governor or Prompt Architect should prepare a
-Codex prompt that includes:
-
-- purpose and task;
-- files to read first;
-- allowed files;
-- forbidden files;
-- validation commands;
-- done-when criteria;
-- commit, push, and PR rules;
-- final report format;
-- writeback check.
-
-Codex should stop if the prompt lacks clear file boundaries, validation, or user
-approval.
-
 ## 6. Use Writeback When Needed
 
-Use `.ai-governance/WRITEBACK_PROTOCOL.md` when temporary chat output should
-become durable repository state.
+Use `.ai-governance/WRITEBACK_PROTOCOL.md` when durable state must be stored.
 
-Writeback is usually needed for:
+Writeback is not needed for every message. Keep it minimal and verified.
 
-- approved project direction or scope changes;
-- durable decisions;
-- role creation or role authority changes;
-- project state updates;
-- handoff status that the next window needs;
-- reusable lessons, anti-patterns, or confirmed user preferences.
+## 7. Mandatory First Window Behavior
 
-Writeback is not needed for every chat message. Keep durable updates small,
-verified, and free of secrets or raw private chat transcripts.
+The first GPT window MUST NOT stop after summarizing BOOT.md.
+It must actively enter bootstrap mode:
+
+- detect first-window vs existing-session state;
+- ask whether user has existing roles/context/preferences;
+- proceed into FIRST_WINDOW_PROTOCOL if first window;
+- output next actionable bootstrap step instead of waiting passively.
