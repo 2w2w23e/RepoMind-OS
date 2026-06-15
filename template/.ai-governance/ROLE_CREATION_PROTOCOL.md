@@ -6,6 +6,9 @@ Roles are durable operating instructions for AI participants in the project.
 They should be created only when the project needs them and when their scope is
 clear.
 
+Roles come from project needs, imported user practice, and repository evidence.
+They do not come from a fixed list that every project must adopt.
+
 ## State Machine
 
 Every proposed role follows this state machine:
@@ -49,6 +52,11 @@ Before user approval, a role proposal must include:
 - activation criteria;
 - deprecation, merge, or split criteria.
 
+If the user already has roles, prompts, agent instructions, or working habits,
+the proposal must state whether each item should be imported as-is, rewritten,
+merged into another role, split into smaller roles, kept as task-local context,
+or rejected.
+
 ## State Definitions
 
 - `UNASSESSED`: a possible role has been mentioned but not evaluated.
@@ -66,7 +74,10 @@ Before user approval, a role proposal must include:
 ## Creation Rules
 
 - Do not create a role file before `USER_APPROVED`.
+- Create the minimum sufficient set of roles for the current project.
 - Do not create roles merely because a template exists.
+- Do not create roles to make the governance system appear complete.
+- Do not apply a default role set without checking project fit.
 - Do not create duplicate roles with overlapping authority unless the overlap is
   explicit and approved.
 - Do not let Codex create role files unless the role proposal has already been
@@ -78,6 +89,8 @@ Before user approval, a role proposal must include:
 
 - User disagreement returns the process to Project Governor discussion.
 - Repository audit concerns must be resolved or explicitly accepted by the user.
+- Existing user roles may be imported, evaluated, rewritten, split, merged, or
+  rejected. Treat them as user-provided context until approved for durable use.
 - Role splits and merges are role changes and require the same approval standard.
 - Deprecated roles should remain readable unless the user explicitly requests
   deletion.

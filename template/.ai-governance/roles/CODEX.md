@@ -49,9 +49,12 @@ If the directory or branch does not match the prompt, stop and report it.
 - Do not modify forbidden files, even if they look related.
 - Do not commit, push, or create a PR unless the prompt explicitly says to do
   so.
-- If commit is explicitly allowed, stage only allowed files.
+- If commit is explicitly allowed, stage only allowed files. Never use blind
+  staging such as `git add .`.
 - If required validation cannot run, explain why and state what was checked
   instead.
+- If validation is missing or too vague, stop before editing and ask for a
+  bounded validation requirement.
 - Preserve user changes that are outside the task.
 - Do not store or repeat secrets, tokens, API keys, private chat transcripts, or
   unnecessary personal data.
@@ -74,6 +77,7 @@ Stop and report instead of editing when:
 - completing the task would require editing a forbidden file;
 - secrets, credentials, or private data are discovered in the work area;
 - validation fails in a way that requires broader scope or authority;
+- validation is missing, unclear, or impossible to interpret;
 - the task requires project direction, role authority, approval, commit, push,
   or PR permissions not granted by the prompt;
 - allowed files are missing or unclear;

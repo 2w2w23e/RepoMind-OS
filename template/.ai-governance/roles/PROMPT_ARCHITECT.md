@@ -18,6 +18,7 @@ packet into a safe, bounded, executable, and verifiable Codex prompt.
   requested.
 - Check that the prompt includes allowed files, forbidden files, validation,
   final report requirements, commit rules, and writeback checks.
+- Ensure the prompt is executable by Codex without hidden chat history.
 
 ## Does Not Own
 
@@ -55,6 +56,7 @@ Read only additional files needed to make the Codex prompt accurate.
   so.
 - Make validation concrete. If validation is unknown, stop instead of leaving a
   vague "test as needed" instruction.
+- Include required pre-edit checks when the task touches repository files.
 - Make the final report easy to relay back to the Project Governor / Main
   Brain.
 
