@@ -8,6 +8,8 @@ write durable updates into repository files.
 - `<target file>`
 - `<target file>`
 
+User preference writebacks must follow `PREFERENCE_PROTOCOL.md`.
+
 ## Reason For Writeback
 
 `<why this information needs to survive beyond the chat window>`

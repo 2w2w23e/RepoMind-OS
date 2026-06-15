@@ -27,7 +27,10 @@ Brain through the user.
 
 ## Recommended Writeback
 
-`<NO_WRITEBACK, HANDOFF_UPDATE, MEMORY_UPDATE, DECISION_LOG_UPDATE, PROJECT_STATE_UPDATE, ROLE_UPDATE, CONTEXT_INDEX_UPDATE, or ANTI_PATTERN_UPDATE>`
+`<NO_WRITEBACK, HANDOFF_UPDATE, MEMORY_UPDATE, DECISION_LOG_UPDATE, PROJECT_STATE_UPDATE, ROLE_UPDATE, CONTEXT_INDEX_UPDATE, ANTI_PATTERN_UPDATE, or USER_PREFERENCE_UPDATE>`
+
+If a non-Project Governor / Main Brain role receives a user preference request,
+recommend `USER_PREFERENCE_UPDATE` instead of persisting it directly.
 
 ## Files That Should Be Updated
 
