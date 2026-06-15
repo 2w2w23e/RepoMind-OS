@@ -37,15 +37,3 @@ instructions here.
 - example: Keep `git status`, `README.md`, and function names unchanged.
 - revisit_trigger: User asks for localized technical naming.
 ```
-
-## Active Entries
-
-```text
-- scope: USER_GLOBAL_PREFERENCE
-- rule: After completing repository changes, commit them and push the current branch unless the user explicitly says not to.
-- source: User explicitly requested future direct commit and upload.
-- status: active
-- applies_to: Codex repository-change tasks
-- example: After editing governance docs, create a commit and push to the tracked remote branch.
-- revisit_trigger: User asks to review before commit, avoid push, or keep changes local.
-```
