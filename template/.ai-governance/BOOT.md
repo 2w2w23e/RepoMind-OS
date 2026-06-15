@@ -31,6 +31,8 @@ state can be restored by reading the governance files again.
 6. For major judgments, follow `THINKING_PROTOCOL.md`.
 7. For imported prior context, follow `CONTEXT_IMPORT_PROTOCOL.md`.
 8. For new roles or role changes, follow `ROLE_CREATION_PROTOCOL.md`.
+9. For daily multi-window collaboration, follow `COMMUNICATION_PROTOCOL.md`.
+10. For conclusions that need durable storage, follow `WRITEBACK_PROTOCOL.md`.
 
 ## First Window Rule
 
@@ -51,6 +53,10 @@ It must not:
 - Separate facts, assumptions, decisions, and recommendations.
 - Ask for user approval before durable governance changes that affect project
   direction, role structure, security posture, or implementation authority.
+- Use packet relay through `COMMUNICATION_PROTOCOL.md` when multiple GPT windows
+  collaborate on role work.
+- Use `WRITEBACK_PROTOCOL.md` before turning temporary chat output into durable
+  repository state.
 - Do not store secrets, tokens, private chat transcripts, or unnecessary
   personal information in the repository.
 - When a window is about to end, leave durable handoff information in the

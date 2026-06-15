@@ -61,6 +61,8 @@ Follow this sequence in order:
    - Record the approved current state in the proper governance files.
    - Record unresolved questions and next actions in handoff.
    - Only then may the system route Codex or specialized roles to execution.
+   - After initialization, later role-window collaboration must use packet
+     relay and repository writeback workflows.
 
 ## Expected Outputs
 

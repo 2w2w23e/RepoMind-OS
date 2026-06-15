@@ -46,6 +46,33 @@ Read:
 Use when the user provides prior GPT summaries, old prompts, old roles, Codex
 reports, project plans, README files, PR records, or similar sources.
 
+### Daily Role Communication
+
+Read:
+
+- `BOOT.md`
+- `COMMUNICATION_PROTOCOL.md`
+- `prompts/role_task_packet.md`
+- `prompts/role_result_packet.md`
+- current role file, if a specialist role is involved
+- `handoff/CURRENT.md`, if current status is needed
+
+Use when the Project Governor / Main Brain sends task packets to role windows
+or receives result packets through the user.
+
+### Repository Writeback
+
+Read:
+
+- `BOOT.md`
+- `WRITEBACK_PROTOCOL.md`
+- `prompts/writeback_packet.md`
+- `checklists/writeback.md`
+- target writeback files
+
+Use when temporary chat results, role outputs, decisions, handoff notes, or
+memory updates may need durable repository storage.
+
 ### Role Creation
 
 Read:
@@ -120,6 +147,7 @@ posture, or governance changes.
 Read:
 
 - `BOOT.md`
+- `WRITEBACK_PROTOCOL.md`
 - `THINKING_PROTOCOL.md`, if the update changes durable guidance
 - `memory/INDEX.md`
 - the relevant role memory file
