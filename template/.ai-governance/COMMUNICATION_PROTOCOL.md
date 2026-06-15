@@ -27,7 +27,9 @@ Those windows coordinate through explicit packets and repository files.
   - reads only the requested files and pasted packet;
   - performs the assigned task within boundaries;
   - returns a Role Result Packet;
-  - does not rely on unseen context from other windows.
+  - does not rely on unseen context from other windows;
+  - reports global rules or cross-role preferences back in the Role Result
+    Packet instead of persisting them directly.
 - User:
   - copies packets between windows;
   - approves durable changes when approval is required.
@@ -61,10 +63,18 @@ The Project Governor / Main Brain evaluates whether the result requires:
 - project state update;
 - role update;
 - context index update;
-- anti-pattern update.
+- anti-pattern update;
+- user preference update.
 
 Long-term writeback requires the proper protocol and user approval when the
 change affects direction, decisions, role authority, or durable memory.
+
+## Preference Handling
+
+If a non-Project Governor / Main Brain role receives a global rule or cross-role
+preference, it must not persist it directly. It should recommend a
+`USER_PREFERENCE_UPDATE` in the Role Result Packet so the Project Governor /
+Main Brain can classify it with `PREFERENCE_PROTOCOL.md`.
 
 ## Minimum Packet Rule
 

@@ -52,6 +52,7 @@ Read:
 
 - `BOOT.md`
 - `COMMUNICATION_PROTOCOL.md`
+- `PREFERENCE_PROTOCOL.md`, if the packet involves user preferences
 - `prompts/role_task_packet.md`
 - `prompts/role_result_packet.md`
 - current role file, if a specialist role is involved
@@ -66,12 +67,28 @@ Read:
 
 - `BOOT.md`
 - `WRITEBACK_PROTOCOL.md`
+- `PREFERENCE_PROTOCOL.md`, if the writeback concerns user preferences
 - `prompts/writeback_packet.md`
 - `checklists/writeback.md`
 - target writeback files
 
 Use when temporary chat results, role outputs, decisions, handoff notes, or
 memory updates may need durable repository storage.
+
+### User Preference Update
+
+Read:
+
+- `BOOT.md`
+- `PREFERENCE_PROTOCOL.md`
+- `WRITEBACK_PROTOCOL.md`
+- `user_preferences/README.md`
+- `user_preferences/GLOBAL.md`, if the preference is global
+- `user_preferences/role_overrides/<ROLE>.md`, if the preference is role-specific
+
+Use when deciding whether a user request should become a cross-project
+preference, a role-specific preference, a project rule, or a task-local
+instruction.
 
 ### Role Creation
 
