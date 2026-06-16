@@ -7,6 +7,16 @@ Brain through the user.
 
 `<role name>`
 
+## Coordination State
+
+- Current coordination state: `<state observed by this role>`
+- Recommended next state: `<state recommended by this result, or none>`
+- Approval status: `<not required / pending / approved>`
+- Execution or writeback impact: `<none / durable writeback / Codex execution / role change>`
+
+If this result recommends durable writeback, Codex execution, or role changes,
+state whether user approval is required before the next step.
+
 ## Task Result
 
 `<concise result of the assigned task>`
@@ -46,4 +56,4 @@ Reason:
 
 ## Notes For Project Governor
 
-- `<routing, follow-up, or review note>`
+- `<routing, follow-up, state transition, or review note>`
