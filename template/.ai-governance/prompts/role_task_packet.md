@@ -7,6 +7,16 @@ window.
 
 `<role name>`
 
+## Coordination State
+
+- Current coordination state: `<state from COORDINATION_GRAPH.md>`
+- Requested next state: `<state requested by this task, or none>`
+- Approval status: `<not required / pending / approved>`
+- Execution or writeback impact: `<none / durable writeback / Codex execution / role change>`
+
+If this packet may lead to durable writeback, Codex execution, or role changes,
+approval status must be explicit before the receiving role acts on it.
+
 ## Current Purpose
 
 `<one clear objective for this task>`
@@ -36,6 +46,8 @@ window.
 - Do not create durable memory or decisions directly.
 - Do not include secrets or private chat transcripts in the result.
 - Stay within `<scope boundary>`.
+- Do not move to a next coordination state that is not allowed by
+  `COORDINATION_GRAPH.md`.
 
 ## Required Output
 
@@ -45,6 +57,8 @@ Return a Role Result Packet with:
 - evidence;
 - uncertainty;
 - risks;
+- current coordination state;
+- recommended next state;
 - recommended writeback;
 - files that should be updated;
 - whether user approval is needed.
@@ -64,4 +78,6 @@ Stop and report back if:
 - the task needs broader authority than this packet grants;
 - the evidence contradicts the context summary;
 - sensitive information appears;
+- the requested next state is not allowed by `COORDINATION_GRAPH.md`;
+- approval is missing for durable writeback, Codex execution, or role changes;
 - the role cannot complete the task without user confirmation.
