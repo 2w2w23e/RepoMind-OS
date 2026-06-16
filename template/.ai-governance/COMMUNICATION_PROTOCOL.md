@@ -15,6 +15,19 @@ Those windows coordinate through explicit packets and repository files.
 - Chat messages are temporary workspace, not durable project state.
 - The repository is the durable coordination layer.
 
+## Graph Edge Mapping
+
+- Role Task Packet = edge input.
+- Role Result Packet = edge output.
+- Writeback Packet = state mutation request.
+
+Every packet must state:
+
+- current coordination state;
+- requested next state;
+- approval status, if the packet may lead to durable writeback or Codex
+  execution.
+
 ## Roles In Daily Communication
 
 - Project Governor / Main Brain:

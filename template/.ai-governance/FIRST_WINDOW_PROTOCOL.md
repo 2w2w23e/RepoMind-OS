@@ -12,6 +12,9 @@ perform implementation work.
 The first window starts from minimal governance. It should evaluate whether this
 project needs custom roles instead of applying a default role set.
 
+The first window must treat bootstrap as a state machine defined in
+`COORDINATION_GRAPH.md`.
+
 ## Supported Entry Scenarios
 
 - New project: little or no prior project context exists.
@@ -45,6 +48,10 @@ Existing roles are project assets, not obstacles.
 
 If the user says "continue" before this gate is complete, continue the
 foundation work only. Do not enter project execution.
+
+If the current Coordination Graph state is before `FOUNDATION_COMPLETE`, the
+next response must advance the next incomplete foundation state instead of
+routing execution.
 
 ## Bootstrap Completion Gate
 
@@ -82,6 +89,9 @@ user has approved the next route.
 If the user says "continue" or asks to move forward, first check this gate. Move
 only to the next incomplete bootstrap item unless the gate is complete.
 
+Use `COORDINATION_GRAPH.md` to report the current bootstrap state and the
+allowed next transition before routing execution.
+
 ## Foundation Before Execution Gate
 
 Foundation Complete means:
@@ -100,6 +110,9 @@ When Foundation Complete is not reached:
 ```text
 Do not enter implementation, testing, Codex execution, stability validation, or refactor planning.
 ```
+
+The Coordination Graph state must be `FOUNDATION_COMPLETE` before the first
+window may request `EXECUTION_ALLOWED`.
 
 ## Draft Before Write Rule
 

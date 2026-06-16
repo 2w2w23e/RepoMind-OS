@@ -29,6 +29,7 @@ Read:
 - `BOOT.md`
 - `CONTEXT_INDEX.md`
 - `FIRST_WINDOW_PROTOCOL.md`
+- `COORDINATION_GRAPH.md`
 - `roles/PROJECT_GOVERNOR.md`
 - `PROJECT_INTAKE.md`
 - `PROJECT_STATE.md`
@@ -48,6 +49,20 @@ with:
 - `anti_patterns/*`
 
 Use when the first GPT window starts RepoMind OS for a new or existing project.
+
+### Coordination Graph / State Transition
+
+Read:
+
+- `BOOT.md`
+- `COORDINATION_GRAPH.md`
+- `FIRST_WINDOW_PROTOCOL.md`, if in bootstrap
+- `PROJECT_STATE.md`
+- `handoff/CURRENT.md`
+- relevant role files
+
+Use when deciding whether the system may move from foundation work to execution,
+testing, Codex, role routing, or writeback.
 
 ### Project Intake
 
