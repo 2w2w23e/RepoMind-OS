@@ -21,6 +21,28 @@ project needs custom roles instead of applying a default role set.
 - Existing role or prompt import: the user already has role files, prompts,
   agent rules, preferences, or working habits they want evaluated.
 
+## Existing Role Integration Gate
+
+Before project testing, stability validation, Codex execution, code-change
+recommendations, or refactor planning, the first window must complete:
+
+1. Project intake draft.
+2. Project state draft.
+3. Existing governance / context import check.
+4. Existing role discovery.
+5. Role compatibility draft.
+6. Minimal role foundation draft.
+7. Role read-order and memory lookup rules.
+8. User approval gate.
+
+If existing roles, old prompts, `AGENTS.md`, AI rules, user preferences, working
+habits, or governance rules are found, use `ROLE_INTEGRATION_PROTOCOL.md`.
+
+Existing roles are project assets, not obstacles.
+
+If the user says "continue" before this gate is complete, continue the
+foundation work only. Do not enter project execution.
+
 ## Bootstrap Completion Gate
 
 Until all gate items below are complete, the first window must not enter project
@@ -32,11 +54,15 @@ Required gate items:
 1. Project intake draft.
 2. Project state draft.
 3. Existing governance and context import check.
-4. Role demand draft.
-5. Repo Governor audit, or a clearly labeled limited audit when the full role is
+4. Existing role discovery.
+5. Role compatibility draft, or a recorded finding that no existing role
+   material was found.
+6. Minimal role foundation draft.
+7. Role read-order and long-term memory lookup rules for each active role.
+8. Repo Governor audit, or a clearly labeled limited audit when the full role is
    not active yet.
-6. User approval for durable writeback.
-7. Approved handoff and next-step routing.
+9. User approval for durable writeback.
+10. Approved handoff and next-step routing.
 
 The first window may present drafts and routing recommendations. It must not
 write long-term governance files by default.
@@ -45,8 +71,30 @@ Before project definition and role division are complete, do not output next
 steps such as "start testing", "ask Codex to execute", "run the validation
 loop", or equivalent execution routing.
 
+Do not output next steps such as "run tests", "let Codex do it", or "start
+stability validation" unless Foundation Complete is explicitly reached and the
+user has approved the next route.
+
 If the user says "continue" or asks to move forward, first check this gate. Move
 only to the next incomplete bootstrap item unless the gate is complete.
+
+## Foundation Before Execution Gate
+
+Foundation Complete means:
+
+- project purpose and current objective are confirmed;
+- existing governance and roles have been checked;
+- old roles have preserve/wrap/merge/deprecate decisions drafted;
+- minimal role foundation is drafted;
+- each active role has read-order and memory lookup rules;
+- durable writeback draft is approved by user;
+- handoff or next execution route is approved.
+
+When Foundation Complete is not reached:
+
+```text
+Do not enter implementation, testing, Codex execution, stability validation, or refactor planning.
+```
 
 ## Draft Before Write Rule
 
@@ -83,6 +131,8 @@ Follow this sequence in order:
    - If prior AI context is provided, use `CONTEXT_IMPORT_PROTOCOL.md`.
    - Check for existing governance files, role prompts, durable memory,
      decisions, handoff, and user preferences before proposing writeback.
+   - If existing role or prompt behavior is found, use
+     `ROLE_INTEGRATION_PROTOCOL.md` before proposing role creation.
 
 3. Project state draft
    - Draft the current project state from repository evidence and user-confirmed
@@ -99,6 +149,11 @@ Follow this sequence in order:
    - Start from minimal governance setup.
    - Propose only roles that are justified by actual project needs, repository
      risk, imported user practice, or explicit user intent.
+   - Treat existing roles as project assets.
+   - Draft preserve, wrap, merge, or deprecate / suspend decisions for existing
+     roles before creating new roles.
+   - Draft Required Read Order and Long-term Memory Lookup rules for every
+     active role.
    - Explain each role's purpose, scope, expected inputs, expected outputs, and
      overlap risk.
    - Do not apply a default role set.

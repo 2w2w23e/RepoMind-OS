@@ -46,6 +46,29 @@ or explicit user confirmation.
    - `handoff/`: current work status, unresolved questions, and import summary.
    - `CONTEXT_INDEX.md`: routing pointers, not raw facts.
 
+## Existing Role Import Branch
+
+If imported content contains roles, prompts, AI rules, `AGENTS.md`, user
+preferences, Codex reports, old project governance summaries, or working habits,
+do not write it directly as project fact.
+
+If imported content contains role or prompt behavior, route it to
+`ROLE_INTEGRATION_PROTOCOL.md`.
+
+Raw private chat must not be written directly into the repository. It may only
+be summarized into user-approved rules, reusable experience, decisions, or
+anti-patterns.
+
+Useful experience from legacy roles should be preserved as one of:
+
+- role adapter draft;
+- memory draft;
+- decision draft;
+- anti-pattern draft.
+
+Do not create, rewrite, merge, rename, or delete role files from imported
+content before explicit user approval.
+
 ## Classification Rules
 
 - Project facts require repository evidence or user confirmation.
@@ -54,7 +77,8 @@ or explicit user confirmation.
 - Current implementation claims must be checked against the current repository.
 - Historical decisions need a source and status: accepted, superseded, rejected,
   or uncertain.
-- Role prompts are proposals until approved through the role creation protocol.
+- Role prompts are proposals until approved through role integration and the
+  role creation protocol.
 - Reusable experience may enter memory only when it is generalized and useful
   beyond one chat message.
 - Stale or suspicious content should remain labeled and should not drive action.

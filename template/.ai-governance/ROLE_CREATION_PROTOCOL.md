@@ -9,6 +9,12 @@ clear.
 Roles come from project needs, imported user practice, and repository evidence.
 They do not come from a fixed list that every project must adopt.
 
+Role creation is not the default action.
+
+If the project already has roles, prompts, agent instructions, user preferences,
+or working habits, run `ROLE_INTEGRATION_PROTOCOL.md` before proposing new role
+files.
+
 ## State Machine
 
 Every proposed role follows this state machine:
@@ -57,6 +63,38 @@ the proposal must state whether each item should be imported as-is, rewritten,
 merged into another role, split into smaller roles, kept as task-local context,
 or rejected.
 
+## Role File Minimum Standard
+
+Any new role file, wrapped legacy role, or merged role file must include:
+
+```text
+Role Identity
+Original Source, if imported or adapted
+Owns
+Does Not Own
+Required Read Order
+Long-term Memory Lookup
+Experience / Anti-pattern Lookup
+Answer Header Requirement
+Writeback Rules
+Codex Boundary
+Stop Conditions
+Activation Criteria
+Deprecation / Merge Criteria
+```
+
+Each role must know:
+
+- which repository files to read before each substantive answer;
+- which long-term memory, experience, decision, and anti-pattern files to check
+  first when a problem appears;
+- when to stop and ask the user;
+- when work may be handed to Codex;
+- when writeback is needed.
+
+If any field is missing, keep the role as a draft or wrap it with an adapter
+before activation.
+
 ## State Definitions
 
 - `UNASSESSED`: a possible role has been mentioned but not evaluated.
@@ -73,13 +111,20 @@ or rejected.
 
 ## Creation Rules
 
+- Role creation is not a default bootstrap action.
 - Do not create a role file before `USER_APPROVED`.
 - Create the minimum sufficient set of roles for the current project.
 - Do not create roles merely because a template exists.
 - Do not create roles to make the governance system appear complete.
 - Do not apply a default role set without checking project fit.
+- If existing roles are present, complete `ROLE_INTEGRATION_PROTOCOL.md` first.
+- Prefer preserving or wrapping useful existing roles.
+- Recommend merging existing roles only when responsibilities, authority,
+  inputs, outputs, or risk boundaries conflict or duplicate each other.
 - Do not create duplicate roles with overlapping authority unless the overlap is
   explicit and approved.
+- Do not create, delete, merge, rename, replace, or materially rewrite role
+  files before explicit user approval.
 - Do not let Codex create role files unless the role proposal has already been
   approved by the user.
 - After creation, the role becomes `ACTIVE` only when the user accepts the file
@@ -91,6 +136,8 @@ or rejected.
 - Repository audit concerns must be resolved or explicitly accepted by the user.
 - Existing user roles may be imported, evaluated, rewritten, split, merged, or
   rejected. Treat them as user-provided context until approved for durable use.
+- Existing roles should be preserved or wrapped first when they contain useful
+  project knowledge.
 - Role splits and merges are role changes and require the same approval standard.
 - Deprecated roles should remain readable unless the user explicitly requests
   deletion.
