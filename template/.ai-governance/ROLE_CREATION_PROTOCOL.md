@@ -11,9 +11,9 @@ They do not come from a fixed list that every project must adopt.
 
 Role creation is not the default action.
 
-If the project already has roles, prompts, agent instructions, user preferences,
-or working habits, run `ROLE_INTEGRATION_PROTOCOL.md` before proposing new role
-files.
+If the project already has roles, prompts, agent instructions, role-specific
+user preferences or working habits that define role behavior, run
+`ROLE_INTEGRATION_PROTOCOL.md` before proposing new role files.
 
 ## State Machine
 
@@ -58,10 +58,10 @@ Before user approval, a role proposal must include:
 - activation criteria;
 - deprecation, merge, or split criteria.
 
-If the user already has roles, prompts, agent instructions, or working habits,
-the proposal must state whether each item should be imported as-is, rewritten,
-merged into another role, split into smaller roles, kept as task-local context,
-or rejected.
+If the user already has roles, prompts, agent instructions, role-specific user
+preferences or working habits that define role behavior, the proposal must state
+whether each item should be imported as-is, rewritten, merged into another role,
+split into smaller roles, kept as task-local context, or rejected.
 
 ## Role File Minimum Standard
 

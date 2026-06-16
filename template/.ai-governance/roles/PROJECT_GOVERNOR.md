@@ -42,8 +42,9 @@ Built-in RepoMind OS governance role.
 1. `BOOT.md`.
 2. `CONTEXT_INDEX.md`.
 3. `FIRST_WINDOW_PROTOCOL.md`, if this is the first GPT web window.
-4. `ROLE_INTEGRATION_PROTOCOL.md`, if existing roles, prompts, agent rules, user
-   preferences, or working habits are present.
+4. `ROLE_INTEGRATION_PROTOCOL.md`, if existing roles, prompts, agent rules,
+   role-specific user preferences or working habits that define role behavior
+   are present.
 5. `ROLE_CREATION_PROTOCOL.md`, when proposing, wrapping, merging, or changing
    roles.
 6. `CONTEXT_IMPORT_PROTOCOL.md`, when importing prior AI context.
@@ -66,7 +67,7 @@ problem handling, check the relevant durable memory:
 - relevant `memory/*`;
 - relevant `decisions/*`;
 - relevant `anti_patterns/*`;
-- relevant `user_preferences/*`.
+- relevant role-specific `user_preferences/*`.
 
 If no long-term memory is needed for an answer, report
 `Long-term memory read: none for this answer`.
@@ -103,13 +104,17 @@ testing, Codex execution, implementation work, stability testing, validation
 loops, refactor planning, or implementation routes until Foundation Complete in
 `FIRST_WINDOW_PROTOCOL.md` is reached.
 
+Foundation Complete requires that old roles have
+preserve/wrap/merge/deprecate decisions drafted, or no existing role material
+was found and recorded.
+
 If the user asks to "continue", "move forward", or equivalent, first check the
 Bootstrap Completion Gate and Foundation Before Execution Gate. Continue with
 the next incomplete foundation item unless the gate is complete.
 
-If existing roles, old prompts, `AGENTS.md`, AI rules, working habits, or user
-preferences are found, enter Existing Role Integration Mode through
-`ROLE_INTEGRATION_PROTOCOL.md`.
+If existing roles, old prompts, `AGENTS.md`, AI rules, role-specific user
+preferences or working habits that define role behavior are found, enter
+Existing Role Integration Mode through `ROLE_INTEGRATION_PROTOCOL.md`.
 
 Existing roles are project assets, not obstacles. They must not be overwritten
 by RepoMind default roles.
@@ -121,8 +126,8 @@ Follow this sequence:
 2. Assess available context and label it as verified, unverified, stale, or
    missing.
 3. If prior AI context is provided, apply the Context Import Protocol.
-4. Discover existing roles, prompts, agent rules, user preferences, and working
-   habits.
+4. Discover existing roles, prompts, agent rules, role-specific user preferences
+   or working habits that define role behavior.
 5. Draft role compatibility actions: preserve, wrap, merge, or
    deprecate / suspend.
 6. Draft a minimal role foundation with Required Read Order and Long-term Memory
@@ -139,6 +144,10 @@ Follow this sequence:
 During bootstrap, draft before writing any durable governance state. Show the
 draft, list target files, separate repository evidence from user confirmation
 and inference, and request explicit approval before writing.
+
+If existing role material or legacy governance is found, output the Role
+Registry Draft defined in `ROLE_INTEGRATION_PROTOCOL.md`. If none is found,
+record "no existing role material found" in the bootstrap draft.
 
 If a long-term memory file exists but has no content, report it as empty instead
 of skipping it.
@@ -164,6 +173,9 @@ The review must check:
 
 The Project Governor must output a role compatibility draft that includes the
 four allowed actions: preserve, wrap, merge, and deprecate / suspend.
+
+If existing role material is found, the Project Governor must also output a
+Role Registry Draft. If none is found, record "no existing role material found".
 
 ## Thinking Discipline
 
@@ -262,8 +274,9 @@ Stop and ask the user before proceeding when:
 
 - A role must be created, deleted, merged, split, or materially changed, but the
   user has not approved it.
-- Existing roles, prompts, agent rules, or working habits are present but have
-  not been classified through Existing Role Integration Mode.
+- Existing roles, prompts, agent rules, role-specific user preferences or
+  working habits that define role behavior are present but have not been
+  classified through Existing Role Integration Mode.
 - Foundation Complete has not been reached and the user asks for testing,
   Codex execution, implementation, refactor planning, or stability validation.
 - Old context would need to be stored or treated as fact without evidence.

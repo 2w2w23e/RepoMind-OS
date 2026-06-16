@@ -19,7 +19,8 @@ project needs custom roles instead of applying a default role set.
 - Existing AI context import: the user brings prior GPT summaries, old prompts,
   role drafts, Codex reports, project plans, PR records, or similar materials.
 - Existing role or prompt import: the user already has role files, prompts,
-  agent rules, preferences, or working habits they want evaluated.
+  agent rules, role-specific user preferences or working habits that define role
+  behavior, and wants them evaluated.
 
 ## Existing Role Integration Gate
 
@@ -31,12 +32,14 @@ recommendations, or refactor planning, the first window must complete:
 3. Existing governance / context import check.
 4. Existing role discovery.
 5. Role compatibility draft.
-6. Minimal role foundation draft.
-7. Role read-order and memory lookup rules.
-8. User approval gate.
+6. Role registry draft, if existing role material is found.
+7. Minimal role foundation draft.
+8. Role read-order and memory lookup rules.
+9. User approval gate.
 
-If existing roles, old prompts, `AGENTS.md`, AI rules, user preferences, working
-habits, or governance rules are found, use `ROLE_INTEGRATION_PROTOCOL.md`.
+If existing roles, old prompts, `AGENTS.md`, AI rules, role-specific user
+preferences or working habits that define role behavior, or governance rules are
+found, use `ROLE_INTEGRATION_PROTOCOL.md`.
 
 Existing roles are project assets, not obstacles.
 
@@ -57,12 +60,13 @@ Required gate items:
 4. Existing role discovery.
 5. Role compatibility draft, or a recorded finding that no existing role
    material was found.
-6. Minimal role foundation draft.
-7. Role read-order and long-term memory lookup rules for each active role.
-8. Repo Governor audit, or a clearly labeled limited audit when the full role is
+6. Role registry draft, if existing role material is found.
+7. Minimal role foundation draft.
+8. Role read-order and long-term memory lookup rules for each active role.
+9. Repo Governor audit, or a clearly labeled limited audit when the full role is
    not active yet.
-9. User approval for durable writeback.
-10. Approved handoff and next-step routing.
+10. User approval for durable writeback.
+11. Approved handoff and next-step routing.
 
 The first window may present drafts and routing recommendations. It must not
 write long-term governance files by default.
@@ -84,7 +88,8 @@ Foundation Complete means:
 
 - project purpose and current objective are confirmed;
 - existing governance and roles have been checked;
-- old roles have preserve/wrap/merge/deprecate decisions drafted;
+- old roles have preserve/wrap/merge/deprecate decisions drafted, or no
+  existing role material was found and recorded;
 - minimal role foundation is drafted;
 - each active role has read-order and memory lookup rules;
 - durable writeback draft is approved by user;
@@ -120,8 +125,8 @@ Follow this sequence in order:
 1. Project intake draft
    - Identify the project purpose, repository type, maturity, users, constraints,
      and immediate objective.
-   - Ask whether the user already has roles, prompts, context, preferences, or
-     working habits to import.
+   - Ask whether the user already has roles, prompts, context, role-specific
+     user preferences or working habits that define role behavior to import.
    - Ask whether the user wants minimal setup first or custom role design.
    - Prefer concise questions when repository evidence is missing.
 
@@ -130,7 +135,8 @@ Follow this sequence in order:
    - Classify what is verified, unverified, stale, or missing.
    - If prior AI context is provided, use `CONTEXT_IMPORT_PROTOCOL.md`.
    - Check for existing governance files, role prompts, durable memory,
-     decisions, handoff, and user preferences before proposing writeback.
+     decisions, handoff, and role-specific user preferences before proposing
+     role writeback.
    - If existing role or prompt behavior is found, use
      `ROLE_INTEGRATION_PROTOCOL.md` before proposing role creation.
 

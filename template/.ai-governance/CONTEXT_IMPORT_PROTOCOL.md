@@ -48,9 +48,10 @@ or explicit user confirmation.
 
 ## Existing Role Import Branch
 
-If imported content contains roles, prompts, AI rules, `AGENTS.md`, user
-preferences, Codex reports, old project governance summaries, or working habits,
-do not write it directly as project fact.
+If imported content contains roles, prompts, AI rules, `AGENTS.md`,
+role-specific user preferences or working habits that define role behavior,
+Codex reports, or old project governance summaries, do not write it directly as
+project fact.
 
 If imported content contains role or prompt behavior, route it to
 `ROLE_INTEGRATION_PROTOCOL.md`.

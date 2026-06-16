@@ -5,7 +5,8 @@
 This protocol defines Existing Role Integration Mode.
 
 Use it to onboard a project that already has role files, old prompts, agent
-rules, user preferences, working habits, or another AI governance system.
+rules, role-specific user preferences or working habits that define role
+behavior, or another AI governance system.
 
 Core rule:
 
@@ -25,12 +26,16 @@ code-change recommendations, or role creation when any of these are present:
 - old GPT or AI prompts;
 - `AGENTS.md` or agent instructions;
 - AI rules, workflow rules, or governance notes;
-- user preferences or working habits;
+- role-specific user preferences or working habits that define role behavior;
 - Codex reports that describe role behavior;
 - imported project governance summaries.
 
 If imported context contains role or prompt behavior, route it here from
 `CONTEXT_IMPORT_PROTOCOL.md`.
+
+Ordinary user preferences, such as language, answer style, or concision, should
+use `PREFERENCE_PROTOCOL.md`. Do not enter this mode only because a
+`user_preferences/` directory exists.
 
 If no existing role material is found, record that finding in the bootstrap
 draft and continue with minimal role foundation.
@@ -40,8 +45,8 @@ draft and continue with minimal role foundation.
 Discover first. Do not rewrite first.
 
 Check user-provided materials, repository governance files, existing role
-folders, prompts, `AGENTS.md`, user preference notes, handoff files, memory,
-decisions, and anti-pattern files when available.
+folders, prompts, `AGENTS.md`, role-specific user preference notes, handoff
+files, memory, decisions, and anti-pattern files when available.
 
 For each discovered role-like source, record:
 
@@ -139,7 +144,8 @@ At minimum, an active role needs:
 - `CONTEXT_INDEX.md`;
 - current project state and intake files when relevant;
 - `handoff/CURRENT.md` when current status matters;
-- task-specific decisions, memory, anti-patterns, or user preferences.
+- task-specific decisions, memory, anti-patterns, or role-specific user
+  preferences.
 
 The read order must be explicit before the role is activated.
 
@@ -156,7 +162,7 @@ The lookup rules must cover:
 - relevant `memory/*`;
 - relevant `decisions/*`;
 - relevant `anti_patterns/*`;
-- relevant `user_preferences/*`.
+- relevant role-specific `user_preferences/*`.
 
 If no memory file is read for an answer, the role must say so in the Context
 Refresh Header.

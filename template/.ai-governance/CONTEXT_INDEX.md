@@ -14,6 +14,9 @@ the goal is to read the right files.
 - Use this index to choose task-specific context.
 - Read project files only when the task requires repository evidence.
 - Do not treat this index as project state; it is a routing table.
+- Wildcard routes mean discover candidates first, then read only relevant files.
+- Do not silently expand to every file unless the task explicitly requires a
+  full audit.
 - If this index is stale, propose an update and ask for approval before relying
   on the new route.
 
@@ -31,14 +34,15 @@ Read:
 - `PROJECT_STATE.md`
 - `handoff/CURRENT.md`
 
-If existing roles, old prompts, `AGENTS.md`, AI rules, or user preferences are
-found, continue with:
+If existing roles, old prompts, `AGENTS.md`, AI rules, or role-specific user
+preferences or working habits that define role behavior are found, continue
+with:
 
 - `ROLE_INTEGRATION_PROTOCOL.md`
 - `ROLE_CREATION_PROTOCOL.md`
 - `CONTEXT_IMPORT_PROTOCOL.md`
 - `roles/*`
-- `user_preferences/*`
+- role-specific files under `user_preferences/*`
 - `memory/*`
 - `decisions/*`
 - `anti_patterns/*`
@@ -84,12 +88,12 @@ Read:
 - `PROJECT_INTAKE.md`
 - existing `roles/*`
 - `AGENTS.md`, if present
-- `user_preferences/*`
+- role-specific files under `user_preferences/*`
 - `handoff/CURRENT.md`
 
-Use when existing roles, legacy prompts, AI rules, agent instructions, or user
-working habits must be preserved, wrapped, merged, or deprecated before
-execution.
+Use when existing roles, legacy prompts, AI rules, agent instructions,
+role-specific user preferences, or working habits that define role behavior must
+be preserved, wrapped, merged, or deprecated before execution.
 
 ### Daily Role Communication
 
